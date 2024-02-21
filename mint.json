@@ -1,4 +1,4 @@
-{
+{ 
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
@@ -30,11 +30,7 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-    },
-  {
-    "name": "Endpoints",
-    "url": ""
-  }
+    }
   ],
   "anchors": [
     {
@@ -82,19 +78,19 @@
     {
       "group": "InternalFundTransferCompanySettings",
       "pages": [
-        "api-reference\\internalfundtransfercompanysettings\\list-settings-of-its-related-companies",
-        "api-reference\\internalfundtransfercompanysettings\\create-internal-fund-transfer-settings-linked-by-portal-api-company",
-        "api-reference\\internalfundtransfercompanysettings\\get-by-id",
-        "api-reference\\internalfundtransfercompanysettings\\update-internal-fund-transfer-settings-linked-by-portal-api-company",
-        "api-reference\\internalfundtransfercompanysettings\\delete-by-id"
+        "api-reference/endpoint/internalfundtransfercompanysettings/list-settings-of-its-related-companies",
+        "api-reference/endpoint/internalfundtransfercompanysettings/create-internal-fund-transfer-settings-linked-by-portal-api-company",
+        "api-reference/endpoint/internalfundtransfercompanysettings/get-by-id",
+        "api-reference/endpoint/internalfundtransfercompanysettings/update-internal-fund-transfer-settings-linked-by-portal-api-company",
+        "api-reference/endpoint/internalfundtransfercompanysettings/delete-by-id"
       ]
     },
     {
       "group": "InternalFundTransfers",
       "pages": [
-        "api-reference\\internalfundtransfers\\view-internal-fund-trasnfer-by-id",
-        "api-reference\\internalfundtransfers\\list-internal-fund-transfers",
-        "api-reference\\internalfundtransfers\\make-internal-fund-transfer"
+        "api-reference/endpoint/internalfundtransfers/view-internal-fund-trasnfer-by-id",
+        "api-reference/endpoint/internalfundtransfers/list-internal-fund-transfers",
+        "api-reference/endpoint/internalfundtransfers/make-internal-fund-transfer"
       ]
     }
   ],
