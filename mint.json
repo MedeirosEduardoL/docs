@@ -24,8 +24,8 @@
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://dashboard.mintlify.com"
-  },  
-  "openapi": ["/api-reference/openapi.json"],
+  },
+  "openapi": [ "./api-reference/openapi.json" ],
   "tabs": [
     {
       "name": "API Reference",
@@ -76,11 +76,21 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "InternalFundTransferCompanySettings",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference\\internalfundtransfercompanysettings\\list-settings-of-its-related-companies",
+        "api-reference\\internalfundtransfercompanysettings\\create-internal-fund-transfer-settings-linked-by-portal-api-company",
+        "api-reference\\internalfundtransfercompanysettings\\get-by-id",
+        "api-reference\\internalfundtransfercompanysettings\\update-internal-fund-transfer-settings-linked-by-portal-api-company",
+        "api-reference\\internalfundtransfercompanysettings\\delete-by-id"
+      ]
+    },
+    {
+      "group": "InternalFundTransfers",
+      "pages": [
+        "api-reference\\internalfundtransfers\\view-internal-fund-trasnfer-by-id",
+        "api-reference\\internalfundtransfers\\list-internal-fund-transfers",
+        "api-reference\\internalfundtransfers\\make-internal-fund-transfer"
       ]
     }
   ],
