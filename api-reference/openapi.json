@@ -537,7 +537,7 @@
           {
             "name": "companyId",
             "in": "query",
-            "description": "",
+            "description": "Teste",
             "schema": {
               "type": "string",
               "format": "uuid"

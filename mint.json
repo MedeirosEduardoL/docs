@@ -76,7 +76,7 @@
       ]
     },
     {
-      "group": "InternalFundTransferCompanySettings",
+      "group": "Company Settings",
       "pages": [
         "api-reference/endpoint/internalfundtransfercompanysettings/list-settings-of-its-related-companies",
         "api-reference/endpoint/internalfundtransfercompanysettings/create-internal-fund-transfer-settings-linked-by-portal-api-company",
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "group": "InternalFundTransfers",
+      "group": "Internal Fund Transfers",
       "pages": [
         "api-reference/endpoint/internalfundtransfers/view-internal-fund-trasnfer-by-id",
         "api-reference/endpoint/internalfundtransfers/list-internal-fund-transfers",
