@@ -1,18 +1,70 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'Overview'
 ---
 
-## Welcome
+Internal Fund Transfer is a microservice designed to perform transactions by communicating with Integration API (FISERV) in order to perform transactions
 
-## Authentication
+---
+Features
+---
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+> - Perform transactions using Integration API (FISERV) using the XferAddRqEnvelope
+> - Validates that the accounts exists in the API Portal
+> - Save a history of transactions made
+> - List the transaction history
+> - When CompanyUser/CompanyApiUser validates that it has access to the source account to make and view transactions.
+> - Has an idempotency mechanism to avoid duplicate transactions
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+---
+Environments
+---
+
+The Internal Fund Transfer system currently supports two environments:  QA (Quality Assurance) and Production. 
+Each environment serves a specific purpose in the development and deployment lifecycle. 
+
+Here's an overview of each environment:
+
+#### QA Environment
+The QA environment is used for testing and quality assurance purposes. It provides a controlled and isolated environment where new features, bug fixes, and system updates are thoroughly tested before being deployed to the Production environment. In the QA environment, you can perform various tests, including functional testing, integration testing, performance testing, and security testing, to ensure the stability and reliability of the system.
+
+Key details about the QA environment:
+- Portal API URL: https://test-api.sunwestbank.com/api
+- Identity API URL: https://test-identity.sunwestbank.com/api
+- Internal Fund Transfer API URL: https://app-internal-fund-transfer-api-qa.azurewebsites.net
+- Purpose: Testing and quality assurance
+- Data: The QA environment may contain simulated or anonymized data, and it should not be used for production data.
+
+#### Production Environment
+The Production environment is the live environment where the system is accessible to end-users. It is the final stage in the software development lifecycle, and it hosts the fully operational and stable version of the system. All customer interactions, transactions, and data management take place in the Production environment. It is essential to ensure that thorough testing and validation have been performed in the QA environment before deploying changes to the Production environment.
+
+Key details about the Production environment:
+- API URL: https://api.sunwestbank.com
+- Identity API URL: https://identity.sunwestbank.com
+- Internal Fund Transfer API URL: https://app-internal-fund-transfer-api-qa.azurewebsites.net
+- Purpose: Live environment for end-users
+- Data: The Production environment contains real customer data and should be handled with care to maintain data privacy and security.
+
+It is important to note that changes made in the QA environment should follow a proper release management process and undergo rigorous testing before being deployed to the Production environment.
+
+---
+Authorization
+---
+
+It's important to note that every endpoint on every environment uses a bearer token for authorization.
+
+#### How to generate a valid token:
+> - Generate valid Token JWT for OperationalSupport or CompanyUser or CompanyApiUser
+>> - Operational Support has access to all accounts so can perform and view transactions with any account they originate from on the API Portal.
+>> - CompanyUser/CompanyApiUser has limited access to accounts that are associated with their team/company so can only perform and view transactions with the originating accounts that he has access to on the Portal API.
+> - The token must be generated at the correspondent environment that it is intended to be used.
+
+Example curl for authenticate:
+
+```bash
+curl --location '{your_enviroment_url}/connect/token' \
+--header 'Authorization: Basic your_basic_string' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'username=your_username' \
+--data-urlencode 'password=your_password'
+

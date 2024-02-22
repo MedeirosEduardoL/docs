@@ -11,7 +11,7 @@
         "tags": [
           "InternalFundTransferCompanySettings"
         ],
-        "summary": "List settings of its related companies",
+        "summary": "List companies' related settings",
         "responses": {
           "200": {
             "description": "Success",
@@ -522,12 +522,13 @@
         "tags": [
           "InternalFundTransfers"
         ],
-        "summary": "View internal fund trasnfer by id",
+        "summary": "Get an internal fund transfer by id",
+        "description": "This endpoint can return data from a previous transfer by its Id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "",
+            "description": "Internal Fund Transfer Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -614,6 +615,7 @@
           "InternalFundTransfers"
         ],
         "summary": "List internal fund transfers",
+        "description": "This endpoint gets the history of transactions as a list",
         "parameters": [
           {
             "name": "FromAccounts",
@@ -708,12 +710,13 @@
         "tags": [
           "InternalFundTransfers"
         ],
-        "summary": "Make internal fund transfer",
+        "summary": "Request internal fund transfer",
+        "description": "This endpoint consolidate a request of an internal fund transfer",
         "parameters": [
           {
             "name": "companyId",
             "in": "query",
-            "description": "",
+            "description": "A unique guid Id",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -722,7 +725,7 @@
           {
             "name": "idempotency-key",
             "in": "header",
-            "description": "",
+            "description": "An optional parameter to prevent duplicated transactions",
             "schema": {
               "type": "string"
             }
@@ -922,11 +925,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "A guid unique internal Id"
           },
           "companyId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "A guid unique company Id"
           },
           "mode": {
             "$ref": "#/components/schemas/InternalFundTransferCompanySettingsMode"
@@ -962,48 +967,39 @@
           "description",
           "fromAccount",
           "fromAccountType",
-          "fromExtTranCode",
           "toAccount",
-          "toAccountType",
-          "toExtTranCode",
-          "transferType"
+          "toAccountType"
         ],
         "type": "object",
         "properties": {
           "fromAccount": {
             "minLength": 1,
+            "description": "The origin of the resource.",
             "type": "string"
           },
           "fromAccountType": {
             "minLength": 1,
+            "description": "The account type of the origin",
             "type": "string"
           },
           "toAccount": {
             "minLength": 1,
+            "description": "The destination of the resource",
             "type": "string"
           },
           "toAccountType": {
             "minLength": 1,
+            "description": "The account type of the destination",
             "type": "string"
           },
           "amount": {
             "type": "number",
+            "description": "The amount value of the transaction",
             "format": "double"
           },
           "description": {
             "minLength": 1,
-            "type": "string"
-          },
-          "transferType": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "toExtTranCode": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "fromExtTranCode": {
-            "minLength": 1,
+            "description": "A short text to describe the transaction",
             "type": "string"
           }
         },
